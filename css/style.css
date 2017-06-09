@@ -1,0 +1,105 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family:Calibri ;
+
+}
+
+.container {
+    width:768px;
+    margin:0 auto;
+}
+
+
+label {
+    color:darkslategray;
+}
+
+input {
+    display: block;
+    padding:5px 0;
+}
+
+form , .results {
+    width:500px;
+    margin:30px auto;
+}
+
+.name_menu {
+    width:50%;
+    float:left;
+    background-color:darkorange;
+    padding:10px 15px;
+    min-height: 240px;
+}
+
+.price_menu {
+    width:38%;
+    float:right;
+    background-color: aqua;
+    padding:10px 15px;
+    min-height: 240px;
+}
+
+button {
+    margin:0 auto;
+    width:221px;
+    float:right;
+    padding:10px 0;
+    background-color: yellowgreen;
+    color:#fff;
+    text-transform: uppercase;
+    border:none;
+    border-radius:10px;
+    cursor: pointer;
+}
+
+.cooks {
+    position: relative;
+}
+
+.cooks > select {
+    position: absolute;
+    top: 19px;
+    right: -12px;
+}
+
+.add_meal {
+    background-color: aqua;
+    padding:30px;
+}
+
+a {
+    display: inline-block;
+    margin: 20px 0;
+    text-decoration: none;
+    color:cornflowerblue;
+    font-size:24px;
+}
+
+a:hover {
+    background-color: aqua;
+}
+
+.admin_menu > a {
+    display: block;
+}
+
+.admin_menu {
+    margin:0 auto;
+    width:500px;
+    background: aquamarine;
+    text-align: center;
+    padding:50px;
+    margin-top:100px;
+}
+
+.all_meal {
+    width:500px;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    margin-top:100px;
+}

@@ -4,6 +4,7 @@
     if (isset($_POST['food']))  {$food=$_POST['food']; }
     if (isset($_POST['weight']))  {$weight=$_POST['weight']; }
     if (isset($_POST['price']))  {$price=$_POST['price'];  }
+    if (isset($_POST['time_id'])) {$time_id=$_POST['time_id']; }
 ?>
 <!doctype html>
 <html>

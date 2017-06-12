@@ -27,9 +27,9 @@
             $menu=mysqli_query($db,"SELECT * FROM eat");
             $all_menu=mysqli_fetch_array($menu);
             do {
-                printf ("<p> <a href='del_meal.php?id=%s'>%s %s %s %s </a></p>", $menu['id'], $menu['food'], $menu['weight'], $menu['price'], $menu['time_id'] );
+                printf ("<p><a href='del_meal.php?id=%s'>%s %s %s %s </a></p>", $all_menu['id'], $all_menu['food'], $all_menu['weight'], $all_menu['price'], $all_menu['time_id'] );
             }
-            while ($menu=mysqli_fetch_array($all_menu)) ;
+            while ($all_menu=mysqli_fetch_array($menu)) ;
             ?>
         <?endif?>
     </div>

@@ -1,5 +1,11 @@
 <?php
     include("base/db.php");
+    if (isset($_POST['id']))  {$id=$_POST['id']; }
+    if (isset($_POST['food']))  {$food=$_POST['food']; }
+    if (isset($_POST['weight']))  {$weight=$_POST['weight']; }
+    if (isset($_POST['price']))  {$price=$_POST['price'];  }
+    if (isset($_POST['time_id'])) {$time_id=$_POST['time_id']; }
+    if (isset($_POST['eat'])) {$eat=$_POST['eat']; }
 ?>
 
 <!doctype html>
@@ -13,84 +19,67 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <form action="results.php" method="post">
-            <div class="menu">
-                <div class="name_menu">
-                    <div class="cooks">
-                        <label for="first_cook">Первое блюдо</label>
-                        <input id="first_cook" name="first_cook" type="text">
-                        <select name="first_quantity">
-                            <option selected hidden>Выбрать...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="cooks">
-                        <label for="second_cook">Второе блюдо</label>
-                        <input id="second_cook" name="second_cook" type="text">
-                        <select name="second_quantity">
-                            <option selected hidden>Выбрать...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="cooks">
-                        <label for="three_cook_cook">Третье блюдо</label>
-                        <input id="three_cook" name="three_cook" type="text">
-                        <select name="three_quantity">
-                            <option selected hidden>Выбрать...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="cooks">
-                        <label for="four_cook">Четвертое блюдо</label>
-                        <input id="four_cook" name="four_cook" type="text">
-                        <select name="four_quantity">
-                            <option selected hidden>Выбрать...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="cooks">
-                        <label for="five_cook">Пятое блюдо</label>
-                        <input id="five_cook" name="five_cook" type="text">
-                        <select name="five_quantity">
-                            <option selected hidden>Выбрать...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
+        <div class="menu">
+            <h1>Наши блюда для заказаза</h1>
+            <form action="../admin/order.php" method="post" id="index_menu">
+                <div class="salats">
+                    <h3>Салаты</h3>
+                    <?
+                    $all_menu = mysqli_query( $db , "SELECT * FROM eat");
+                    $menu = mysqli_fetch_array($all_menu);
+                    do {
+                        if ($menu['time_id'] == 4) {
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            $all_eat[]=$menu['price'];
+                        }
+                    }
+                    while ($menu = mysqli_fetch_array($all_menu));
+                    ?>
                 </div>
-                <div class="price_menu">
-                    <label for="first_price">Цена за первое блюдо</label>
-                    <input id="first_price" name="first_price" type="text">
-                    <label for="second_price">Цена за второе блюдо</label>
-                    <input id="second_price" name="second_price" type="text">
-                    <label for="three_price">Цена за третье блюдо</label>
-                    <input id="three_price" name="three_price" type="text">
-                    <label for="four_price">Цена за четвертое блюдо</label>
-                    <input id="four_price" name="four_price" type="text">
-                    <label for="five_price">Цена за пятое блюдо</label>
-                    <input id="five_price" name="five_price" type="text">
+                <div class="garnish">
+                    <h3>Гарнир</h3>
+                    <?
+                    $all_menu = mysqli_query( $db , "SELECT * FROM eat");
+                    $menu = mysqli_fetch_array($all_menu);
+                    do {
+                        if ($menu['time_id'] == 3) {
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            $all_eat[]=$menu['price'];
+                        }
+                    }
+                    while ($menu = mysqli_fetch_array($all_menu));
+                    ?>
                 </div>
-            </div>
-            <div class="select">
-                <select name="select">
-                    <option selected hidden>Выбрать...</option>
-                    <option value="Завтрак">Завтрак</option>
-                    <option value="Обед">Обед</option>
-                    <option value="Ужин">Ужин</option>
-                </select>
-            </div>
-            <button type="submit">Сделать заказ</button>
-        </form>
-    </div>
+                <div class="colds">
+                    <h3>Холодное</h3>
+                    <?
+                    $all_menu = mysqli_query( $db , "SELECT * FROM eat");
+                    $menu = mysqli_fetch_array($all_menu);
+                    do {
+                        if ($menu['time_id'] == 2) {
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            $all_eat[]=$menu['price'];
+                        }
+                    }
+                    while ($menu = mysqli_fetch_array($all_menu));
+                    ?>
+                </div>
+                <div class="hots">
+                    <h3>Горячее</h3>
+                    <?
+                    $all_menu = mysqli_query( $db , "SELECT * FROM eat");
+                    $menu = mysqli_fetch_array($all_menu);
+                    do {
+                        if ($menu['time_id'] == 1) {
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            $all_eat[]=$menu['price'];
+                        }
+                    }
+                    while ($menu = mysqli_fetch_array($all_menu));
+                    ?>
+                </div>
+                <button type="submit">Заказать</button>
+            </form>
+        </div>
 </body>
 </html>

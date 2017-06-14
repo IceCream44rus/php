@@ -19,7 +19,7 @@
 <body>
 <a href="index.php">Вернуться</a>
 <?
-    $all_menu=mysqli_query($db, "UPDATE eat SET food='$food',  weight='$weight', price='$price' WHERE id='$id' ");
+    $all_menu=mysqli_query($db, "UPDATE eat SET food='$food',  weight='$weight', price='$price', time_id='$time_id' WHERE id='$id' ");
     if($all_menu==true) {
         echo "<p> Блюдо $food успешно обновлено</p>";
     }

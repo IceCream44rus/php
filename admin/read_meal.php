@@ -58,7 +58,7 @@
     <?endif?>
     <div class="seasons">
         <div class="breakfast">
-            <h1>Завтрак</h1>
+            <h1>Горячее</h1>
             <?
             $all_menu = mysqli_query( $db , "SELECT * FROM eat");
             $menu = mysqli_fetch_array($all_menu);
@@ -71,7 +71,7 @@
             ?>
         </div>
         <div class="lunch">
-            <h1>Обед</h1>
+            <h1>Холодное</h1>
             <?
             $all_menu = mysqli_query( $db , "SELECT * FROM eat");
             $menu = mysqli_fetch_array($all_menu);
@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="dinner">
-        <h1>Ужин</h1>
+        <h1>Гарниры</h1>
         <?
         $all_menu = mysqli_query( $db , "SELECT * FROM eat");
         $menu = mysqli_fetch_array($all_menu);
@@ -94,6 +94,20 @@
                 printf ("<p><a href='read_meal.php?id=%s'> '%s' , '%s' , '%s'</a></p>" , $menu['id'], $menu['food'], $menu['weight'], $menu['price']);
                 $all_eat[]=$menu['price'];
         }
+        }
+        while ($menu = mysqli_fetch_array($all_menu));
+        ?>
+    </div>
+    <div class="dinner">
+        <h1>Салаты</h1>
+        <?
+        $all_menu = mysqli_query( $db , "SELECT * FROM eat");
+        $menu = mysqli_fetch_array($all_menu);
+        do {
+            if ($menu['time_id']==4) {
+                printf ("<p><a href='read_meal.php?id=%s'> '%s' , '%s' , '%s'</a></p>" , $menu['id'], $menu['food'], $menu['weight'], $menu['price']);
+                $all_eat[]=$menu['price'];
+            }
         }
         while ($menu = mysqli_fetch_array($all_menu));
         ?>

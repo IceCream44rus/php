@@ -22,14 +22,14 @@
     <?php
     $all_menu = mysqli_query( $db , "SELECT * FROM eat");
     $menu = mysqli_fetch_array($all_menu);
-    $aDoor = $_POST['eat'];
-    $N = count($aDoor);
+    $order = $_POST['eat'];
+    $N = count($order);
     echo("Вы выбрали $N блюдо(д): <br/>");
     $all_eat[]=$menu['price'];
     echo "Стоимость за все блюда:". array_sum($all_eat)."руб<br/><br/>";
     for($i=0; $i < $N; $i++)
     {
-        echo($aDoor[$i] . "<br/> ");
+        echo($order[$i] . "<br/> ");
     }
     ?>
 </body>

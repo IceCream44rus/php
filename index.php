@@ -29,7 +29,7 @@
                     $menu = mysqli_fetch_array($all_menu);
                     do {
                         if ($menu['time_id'] == 4) {
-                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['id'], $menu['food'], $menu['weight'], $menu['price']);
                             $all_eat[]=$menu['price'];
                         }
                     }
@@ -43,7 +43,7 @@
                     $menu = mysqli_fetch_array($all_menu);
                     do {
                         if ($menu['time_id'] == 3) {
-                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['id'], $menu['food'], $menu['weight'], $menu['price']);
                             $all_eat[]=$menu['price'];
                         }
                     }
@@ -57,7 +57,7 @@
                     $menu = mysqli_fetch_array($all_menu);
                     do {
                         if ($menu['time_id'] == 2) {
-                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['id'], $menu['food'], $menu['weight'], $menu['price']);
                             $all_eat[]=$menu['price'];
                         }
                     }
@@ -71,7 +71,7 @@
                     $menu = mysqli_fetch_array($all_menu);
                     do {
                         if ($menu['time_id'] == 1) {
-                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['food'], $menu['food'], $menu['weight'], $menu['price']);
+                            printf("<div><label><input type='checkbox' class=\"menu_food\" name='eat[]' value='%s'>%s,%s гр,%s руб </label></div>",$menu['id'], $menu['food'], $menu['weight'], $menu['price']);
                             $all_eat[]=$menu['price'];
                         }
                     }

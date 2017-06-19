@@ -20,17 +20,16 @@
 <body>
     <h1>Спасибо за ваш заказ!</h1>
     <?php
-    $all_menu = mysqli_query( $db , "SELECT * FROM eat");
-    $menu = mysqli_fetch_array($all_menu);
     $order = $_POST['eat'];
     $N = count($order);
     echo("Вы выбрали $N блюдо(д): <br/>");
-    $all_eat[]=$menu['price'];
-    echo "Стоимость за все блюда:". array_sum($all_eat)."руб<br/><br/>";
-    for($i=0; $i < $N; $i++)
-    {
-        echo($order[$i] . "<br/> ");
+    foreach ($order as $value) {
+        $all_menu = mysqli_query( $db , "SELECT * FROM eat WHERE id=\"$value\"");
+        $menu = mysqli_fetch_array($all_menu);
+        printf("%s , %s<br>" , $menu['food'],$menu['price']);
+        $all_eat[]=$menu['price'];
     }
     ?>
+    <p>Стоимость заказа равна : <?=array_sum($all_eat)?></p>
 </body>
 </html>
